@@ -1,22 +1,23 @@
 package com.example.networking;
 
 public class Mountain {
-    {
-            "ID":"mobilprog_k2",
-            "name":"K2",
-            "type":"brom",
-            "company":"",
-            "location":"The Karakoram range",
-            "category":"",
-            "size":8611,
-            "cost":28251,
-            "auxdata":{
-                "wiki":"https://en.wikipedia.org/wiki/K2",
-                "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/K2_2006b.jpg/640px-K2_2006b.jpg"
+
+   String s = new String ("{\
+            "ID\":\"mobilprog_k2\",
+           \"name\":\"K2\",
+           \"type\":\"brom\",
+           \"company\":\"\",
+           \"location\":\"The Karakoram range\",
+           \"category\":\"\",
+           \ "size\":8611,
+           \"cost\":28251,
+           \"auxdata\":{
+                \"wiki\":\"https://en.wikipedia.org/wiki/K2\",
+                \"img\":\"https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/K2_2006b.jpg/640px-K2_2006b.jpg\"
                     }
                 },
     {
-            "ID":"mobilprog_matterhorn",
+            \"ID\":"mobilprog_matterhorn",
             "name":"Matterhorn",
             "type":"brom",
             "company":"",
@@ -42,5 +43,5 @@ public class Mountain {
                 "wiki":"https://en.wikipedia.org/wiki/Mount_Everest",
                 "img":"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f6/Everest_kalapatthar.jpg/512px-Everest_kalapatthar.jpg"
             }
-    }
+    }");
 }
