@@ -16,10 +16,12 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    //skapa en arraylist här
+    private ArrayList<String> list = new ArrayList<>(Mountain);
+
     //arrayadapter och layout
     //skapa en listview i folder layout
     //find view by ID listview
