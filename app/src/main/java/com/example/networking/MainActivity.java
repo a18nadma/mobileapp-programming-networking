@@ -26,6 +26,12 @@ public class MainActivity extends AppCompatActivity {
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
 
+        @Override
+        protected void onPostExecute(String s){
+            super.onPostExecute(s);
+            Log.d("brom","DataFetched:"+s);
+        }
+
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
 
