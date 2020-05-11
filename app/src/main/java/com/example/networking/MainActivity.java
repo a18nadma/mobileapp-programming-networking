@@ -6,6 +6,10 @@ import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 
@@ -20,7 +24,19 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<String> list = new ArrayList<>(Mountain);
+    private ArrayList<JSONArray> listData = new ArrayList<>(JSONArray);
+    ArrayAdapter<JSONArray> adapter=new ArrayAdapter<JSONArray>(this,R.layout.list_item_textview,R.id.list_item_textview_xml,listData);
+
+    ListView my_listview=(ListView) findViewById(R.id.list_item_textview_xml);
+
+    my_listview.setAdapter(adapter);
+
+    my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
+       @Override
+       public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+            Toast.makeText(getApplicationContext(), "I don't know what to type here", Toast.LENGTH_SHORT).show();
+        }
+    });
 
     //arrayadapter och layout
     //skapa en listview i folder layout
@@ -75,14 +91,6 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
-
-        @Override
-        protected void onPostExecute(String json) {
-            try {
-                items.clear();
-                JSONArray jsonArray = new JSONArray(json);
-                for (int i = 0; i <)
-            }
             Log.d("TAG", json);
         }
     }
