@@ -7,6 +7,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 
+import org.json.JSONArray;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -17,6 +19,15 @@ import java.net.URL;
 
 public class MainActivity extends AppCompatActivity {
 
+    //skapa en arraylist här
+    //arrayadapter och layout
+    //skapa en listview i folder layout
+    //find view by ID listview
+    //deklarera adapter
+    //itemclicklistener
+    //onitemclick
+    //string message
+    //toast
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,12 +36,6 @@ public class MainActivity extends AppCompatActivity {
 
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
-
-        @Override
-        protected void onPostExecute(String s){
-            super.onPostExecute(s);
-            Log.d("brom","DataFetched:"+s);
-        }
 
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
@@ -71,6 +76,11 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
+            try {
+                items.clear();
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0; i <)
+            }
             Log.d("TAG", json);
         }
     }
