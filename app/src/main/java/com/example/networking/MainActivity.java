@@ -24,28 +24,15 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<JSONArray> listData = new ArrayList<>(JSONArray);
-    ArrayAdapter<JSONArray> adapter=new ArrayAdapter<JSONArray>(this,R.layout.list_item_textview,R.id.list_item_textview_xml,listData);
+    private ArrayList<Mountain> listData = new ArrayList<>(Mountain);
+    ArrayAdapter<Mountain> adapter=new ArrayAdapter<Mountain>(this,R.layout.list_item_textview,R.id.list_item_textview_xml,listData);
 
     ListView my_listview=(ListView) findViewById(R.id.list_item_textview_xml);
 
     my_listview.setAdapter(adapter);
 
-    my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener(){
-       @Override
-       public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-            Toast.makeText(getApplicationContext(), "I don't know what to type here", Toast.LENGTH_SHORT).show();
-        }
-    });
 
-    //arrayadapter och layout
-    //skapa en listview i folder layout
-    //find view by ID listview
-    //deklarera adapter
-    //itemclicklistener
-    //onitemclick
-    //string message
-    //toast
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -60,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
 
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
+                URL url = new URL(params[0]);
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
 
@@ -91,6 +78,9 @@ public class MainActivity extends AppCompatActivity {
             }
             return null;
         }
+
+        @Override
+        protected void onPostExecute(String json) {
             Log.d("TAG", json);
         }
     }
