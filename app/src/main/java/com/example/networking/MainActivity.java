@@ -97,13 +97,13 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
-                ArrayAdapter<String> adapter=new ArrayAdapter<>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak , MountainName);
+                ArrayAdapter<String> adapter=new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak , MountainName);
                 ListView my_listView=(ListView) findViewById(R.id.my_listView);
                 my_listView.setAdapter(adapter);
                 my_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
-                        Toast.makeText(getApplicationContext(), MountainName.get(i) + " is located at " + MountainLocation.get(i) + " and is " + MountainHeight.get(i) + " meters hight.", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), MountainName.get(i) + " is located at " + MountainLocation.get(i) + " and is " + MountainHeight.get(i) + " meters heigh.", Toast.LENGTH_LONG).show();
                     }
                 });
             }
