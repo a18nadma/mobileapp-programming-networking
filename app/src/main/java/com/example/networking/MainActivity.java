@@ -24,12 +24,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ArrayList<Mountain> listData = new ArrayList<>(Mountain);
-    ArrayAdapter<Mountain> adapter=new ArrayAdapter<Mountain>(this,R.layout.list_item_textview,R.id.list_item_textview_xml,listData);
 
-    ListView my_listview=(ListView) findViewById(R.id.list_item_textview_xml);
-
-    my_listview.setAdapter(adapter);
 
 
 
@@ -37,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
     }
 
     @SuppressLint("StaticFieldLeak")
@@ -45,9 +41,14 @@ public class MainActivity extends AppCompatActivity {
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
 
+        private ArrayList<String> MountainName=new ArrayList<>();
+        private ArrayList<String> MountainLocation=new ArrayList<>();
+        private ArrayList<Integer> MouintainHeight=new ArrayList<>();
+
+
         protected String doInBackground(String... params) {
             try {
-                URL url = new URL(params[0]);
+                URL url = new URL("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
                 connection = (HttpURLConnection) url.openConnection();
                 connection.connect();
 
