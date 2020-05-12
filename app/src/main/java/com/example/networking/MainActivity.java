@@ -5,13 +5,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -43,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
         private ArrayList<String> MountainName=new ArrayList<>();
         private ArrayList<String> MountainLocation=new ArrayList<>();
-        private ArrayList<Integer> MouintainHeight=new ArrayList<>();
+        private ArrayList<Integer> MountainHeight=new ArrayList<>();
 
 
         protected String doInBackground(String... params) {
@@ -82,7 +84,32 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
-            Log.d("TAG", json);
+            try {
+                JSONArray jsonArray = new JSONArray(json);
+                for (int i = 0; i < jsonArray.length(); i++){
+                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                    String name = jsonObject.getString("name");
+                    String location = jsonObject.getString("location");
+                    int height = jsonObject.getInt("height");
+
+                    MountainName.add(name);
+                    MountainLocation.add(location);
+                    MountainHeight.add(height);
+                }
+
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(MainActivity.this, R.layout.list_item_textview, R.id.list_item_textview, MountainName);
+                ListView my_listview=(ListView) findViewById(R.id.my_listView);
+                my_listview.setAdapter(adapter);
+                my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int i, long id) {
+                        Toast.makeText(getApplicationContext(), MountainName.get(i) + " is located at " + MountainLocation.get(i) + " and is " + MountainHeight.get(i) + " meters hight.", Toast.LENGTH_LONG).show();
+                    }
+                });
+            }
+            catch (JSONException e){
+                e.printStackTrace();
+            }
         }
     }
 }
