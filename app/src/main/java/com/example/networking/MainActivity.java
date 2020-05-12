@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
-                ArrayAdapter<String> adapter=new ArrayAdapter<>(MainActivity.this, R.layout.list_item_textview, R.id.list_item_textview, MountainName);
+                ArrayAdapter<String> adapter=new ArrayAdapter<>(MainActivity.this, R.layout.list_item_textview, , MountainName);
                 ListView my_listview=(ListView) findViewById(R.id.my_listView);
                 my_listview.setAdapter(adapter);
                 my_listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
