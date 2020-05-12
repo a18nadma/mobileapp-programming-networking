@@ -43,9 +43,9 @@ public class MainActivity extends AppCompatActivity {
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
 
-        private ArrayList<String> MountainName=new ArrayList<>();
-        private ArrayList<String> MountainLocation=new ArrayList<>();
-        private ArrayList<Integer> MountainHeight=new ArrayList<>();
+        private ArrayList<String> MountainName=new ArrayList<String>();
+        private ArrayList<String> MountainLocation=new ArrayList<String>();
+        private ArrayList<Integer> MountainHeight=new ArrayList<Integer>();
 
 
         protected String doInBackground(String... params) {
