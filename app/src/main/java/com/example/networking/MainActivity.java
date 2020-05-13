@@ -109,6 +109,8 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
+                adapter.notifyDataSetChanged();
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
