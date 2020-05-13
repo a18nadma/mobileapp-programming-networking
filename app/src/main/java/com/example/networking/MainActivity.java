@@ -40,6 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        adapters = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
+
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
         ListView my_listView = (ListView) findViewById(R.id.my_listView);
         my_listView.setAdapter(adapter);
