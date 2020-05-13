@@ -37,15 +37,16 @@ public class MainActivity extends AppCompatActivity {
         new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
     }
 
+    private ArrayList<String> MountainName=new ArrayList<String>();
+    private ArrayList<String> MountainLocation=new ArrayList<String>();
+    private ArrayList<Integer> MountainHeight=new ArrayList<Integer>();
+
+
     @SuppressLint("StaticFieldLeak")
     private class JsonTask extends AsyncTask<String, String, String> {
 
         private HttpURLConnection connection = null;
         private BufferedReader reader = null;
-
-        private ArrayList<String> MountainName=new ArrayList<String>();
-        private ArrayList<String> MountainLocation=new ArrayList<String>();
-        private ArrayList<Integer> MountainHeight=new ArrayList<Integer>();
 
 
         protected String doInBackground(String... params) {
