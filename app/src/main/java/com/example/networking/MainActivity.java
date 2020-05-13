@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayAdapter<String> adapter = new ArrayAdapter<String>();
+    ArrayAdapter<String> adapters;
     private ArrayList<String> MountainName=new ArrayList<String>();
     private ArrayList<String> MountainLocation=new ArrayList<String>();
     private ArrayList<Integer> MountainHeight=new ArrayList<Integer>();
@@ -112,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
-                adapter.notifyDataSetChanged();
+                adapters.notifyDataSetChanged();
 
             } catch (JSONException e) {
                 Log.d("Stars", e.getLocalizedMessage());
