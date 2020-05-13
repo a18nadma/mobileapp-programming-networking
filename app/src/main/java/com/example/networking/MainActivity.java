@@ -99,6 +99,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
+            adapter.notifyDataSetChanged();
             try {
                 JSONArray jsonArray = new JSONArray(json);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -112,8 +113,8 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
-                adapter.notifyDataSetChanged();
-
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
         }
     }
