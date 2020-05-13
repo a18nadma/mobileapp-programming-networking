@@ -106,11 +106,11 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject jsonObject = jsonArray.getJSONObject(i);
                     String name = jsonObject.getString("name");
                     String location = jsonObject.getString("location");
-                    int size = jsonObject.getInt("size");
+                    int height = jsonObject.getInt("size");
 
                     MountainName.add(name);
                     MountainLocation.add(location);
-                    MountainHeight.add(size);
+                    MountainHeight.add(height);
                 }
 
                 adapter.notifyDataSetChanged();
