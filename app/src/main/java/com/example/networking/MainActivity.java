@@ -26,7 +26,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-
+    ArrayAdapter<String> adapter;
 
 
 
@@ -48,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    ArrayAdapter<String> adapter;
+
 
     private ArrayList<String> MountainName=new ArrayList<String>();
     private ArrayList<String> MountainLocation=new ArrayList<String>();
