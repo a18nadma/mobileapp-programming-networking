@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.annotation.SuppressLint;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -99,7 +100,6 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String json) {
-            adapter.notifyDataSetChanged();
             try {
                 JSONArray jsonArray = new JSONArray(json);
                 for (int i = 0; i < jsonArray.length(); i++) {
@@ -113,8 +113,10 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
+                adapter.notifyDataSetChanged();
+
             } catch (JSONException e) {
-                e.printStackTrace();
+                Log.d("Stars", e.getLocalizedMessage());
             }
         }
     }
