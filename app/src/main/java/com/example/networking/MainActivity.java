@@ -27,7 +27,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
-    ArrayAdapter<String> adapters;
+    ArrayAdapter<String> adapter;
     private ArrayList<String> MountainName=new ArrayList<String>();
     private ArrayList<String> MountainLocation=new ArrayList<String>();
     private ArrayList<Integer> MountainHeight=new ArrayList<Integer>();
@@ -40,9 +40,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        adapters = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
+        adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
         ListView my_listView = (ListView) findViewById(R.id.my_listView);
         my_listView.setAdapter(adapter);
         my_listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -114,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
                     MountainHeight.add(height);
                 }
 
-                adapters.notifyDataSetChanged();
+                adapter.notifyDataSetChanged();
 
             } catch (JSONException e) {
                 Log.d("Stars", e.getLocalizedMessage());
