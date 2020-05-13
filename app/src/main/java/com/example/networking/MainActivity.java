@@ -114,8 +114,6 @@ public class MainActivity extends AppCompatActivity {
 
                 adapter.notifyDataSetChanged();
 
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }
