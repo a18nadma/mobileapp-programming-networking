@@ -39,7 +39,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(MainActivity.this, R.layout.list_item_textview, R.id.mountain_peak, MountainName);
         ListView my_listView = (ListView) findViewById(R.id.my_listView);
@@ -50,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), MountainName.get(i) + " is located at " + MountainLocation.get(i) + " and is " + MountainHeight.get(i) + " meters high.", Toast.LENGTH_LONG).show();
             }
         });
-
+        new JsonTask().execute("https://wwwlab.iit.his.se/brom/kurser/mobilprog/dbservice/admin/getdataasjson.php?type=brom");
     }
 
 
